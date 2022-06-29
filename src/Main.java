@@ -1,5 +1,54 @@
 public class Main {
     public static void main(String[] args) {
-        System.out.println("Hello world!");
+        generateRandomArray();
+        task1();
+        task2();
+        task3();
+        task4();
+    }
+    static int[] arr = generateRandomArray();
+    public static int[] generateRandomArray() {
+        java.util.Random random = new java.util.Random();
+        int[] arr = new int[30];
+        for (int i = 0; i < arr.length; i++) {
+            arr[i] = random.nextInt(100_000) + 100_000;
+        }
+        return arr;
+    }
+
+    public static void task1() {
+        int amount = 0;
+        for (int i = 0; i < arr.length; i++) {
+            amount = amount + arr[i];
+        }
+        System.out.println("Сумма трат за месяц составила " + amount + " рублей.");
+    }
+    public static void task2() {
+        int max = arr[0];
+        int min = arr[0];
+        for (int i = 0; i < arr.length; i++) {
+            if (max < arr[i]) {
+                max = arr[i];
+            }
+            if (min > arr[i]) {
+                min = arr[i];
+            }
+        }
+            System.out.println("Максимальная сумма трат за день составила " + max + " рублей.");
+            System.out.println("Минимальная сумма трат за день составила " + min + " рублей.");
+
+    }
+    public static void task3() {
+        double AverageAmount = arr[0];
+        for (int i = 0; i < arr.length; i++) {
+            AverageAmount += arr[i];
+        }
+        System.out.println("Средняя сумма трат за месяц составила " + AverageAmount / (arr.length - 1) + " рублей.");
+    }
+    public static void task4() {
+        char[] reverseFullName = { 'n', 'a', 'v', 'I', ' ', 'v', 'o', 'n', 'a', 'v', 'I'};
+        for (int i = reverseFullName.length - 1; i < reverseFullName.length && i >= 0; i--) {
+            System.out.print(reverseFullName[i]);
+        }
     }
 }
